@@ -12,7 +12,7 @@
 // PROTOTIPI
 int cercaMinimo(int v[], int n);
 int cercaMassimo(int v[], int n);
-int calcolaMedia(int v[], int n);
+float calcolaMedia(int v[], int n);
 void visualizza(int v[], int n);
 
 // PROGRAMMA PRINCIPALE
@@ -22,7 +22,8 @@ int main()
 	int v1[] = {4, 3, 5, 9, 7, 1};
 	int v2[] = {5, 7, 8, 6, 2, 4, 9};
 	int v3[] = {-3, 5, 4, 0};
-	int dimv1, dimv2, dimv3, minv1, minv2, minv3, maxv1, maxv2, maxv3, avgv1, avgv2, avgv3;
+	int dimv1, dimv2, dimv3, minv1, minv2, minv3, maxv1, maxv2, maxv3;
+	float avgv1, avgv2, avgv3;
 
 	// CORPO DEL PROGRAMMA
 	printf("inizio\n");
@@ -38,7 +39,7 @@ int main()
 	avgv1 = calcolaMedia(v1, dimv1);
 	printf("valore minimo: %d\n", minv1);
 	printf("valore massimo: %d\n", maxv1);
-	printf("valore medio: %d\n", avgv1);
+	printf("valore medio: %.2f\n", avgv1);
 
 
 	visualizza(v2, dimv2);
@@ -47,7 +48,7 @@ int main()
 	avgv2 = calcolaMedia(v2, dimv2);
 	printf("valore minimo: %d\n", minv2);
 	printf("valore massimo: %d\n", maxv2);
-	printf("valore medio: %d\n", avgv2);
+	printf("valore medio: %.2f\n", avgv2);
 
 	visualizza(v3, dimv3);
 	minv3 = cercaMinimo(v3, dimv3);
@@ -55,7 +56,7 @@ int main()
 	avgv3 = calcolaMedia(v3, dimv3);
 	printf("valore minimo: %d\n", minv3);
 	printf("valore massimo: %d\n", maxv3);
-	printf("valore medio: %d\n", avgv3);
+	printf("valore medio: %.2f\n", avgv3);
 	
 
 	printf("\nfine\n");
@@ -91,17 +92,18 @@ int cercaMassimo(int v[], int n)
 	return max;
 }
 //calcola la media aritmetica dei valori contenuti nell'array
-int calcolaMedia(int v[], int n) 
+float calcolaMedia(int v[], int n) 
 {
 	//VARIABILI LOCALI ALLA FUNZIONE
-	int i, sumOfElements, avg;
+	int i, sumOfElements = 0;
+	float avg;
 
 	//CORPO DELLA FUNZIONE
 	for (i = 0; i < n; i++) 
 	{
 		sumOfElements += v[i];
 	}
-	avg = sumOfElements / n;
+	avg = (float) sumOfElements / (float) n;
 
 	return avg; 
 }
