@@ -27,6 +27,10 @@ int main()
 	int dimv1, dimv2, dimv3, minv1, minv2, minv3, maxv1, maxv2, maxv3;
 	float avgv1, avgv2, avgv3;
 
+	// Andiamo a creare un set di numeri che statisticamente sono casuali tramite il metodo srand
+	//  Se usassi zero come parametro della funzione time, allora andrei a passare il valore attuale
+	srand(time(NULL));
+
 	// CORPO DEL PROGRAMMA
 	printf("inizio\n");
 
@@ -130,9 +134,6 @@ void populateArray(int v[], int n)
 	// VARIBILI LOCALI ALLA FUNZIONE
 	int i, randomNumber = 0;
 	// CORPO DELLA FUNZIONE
-	// Andiamo a creare un set di numeri che statisticamente sono casuali tramite il metodo srand
-	//  Se usassi zero come parametro della funzione time, allora andrei a passare il valore attuale
-	srand(time(0));
 	for (i = 0; i < n; i++)
 	{
 		// Andrò a generare un numero casuale tra 0 a 100 usando il segno di modulo
