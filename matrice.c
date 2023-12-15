@@ -12,6 +12,16 @@
 // Modificare il numero di righe (4) e il numero di colonne (12)
 #define DIMR 4
 #define DIMC 12
+// Ora la matrice ha 4 righe e 12 colonne, e questo ovviamente si riflette nell'output del programma
+/*
+Inserisci un valore per il seme:10
+
+Matrice:
+81 79 42 24 27 36 72 52 36 19 64 21 
+13 24 43 92 51 79 74 40 19 10 53 16 
+27 27 90 17 21 13 65 59 89 54 48 82 
+71 97 18 51 99 45 93 43 42 33 19 37
+*/
 
 // VARIABILI GLOBALI
 // PROTOTIPI
