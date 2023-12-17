@@ -1,6 +1,7 @@
+// Aggiungo le librerie necessarie al funzionamento del programma 
 #include <stdio.h>
-#include <string.h>
-#include <stdbool.h>
+#include <string.h> // Libreria per la gestione delle stringhe
+#include <stdbool.h> // Libreria per la gestione dei booleani
 
 struct libro
 {
@@ -33,6 +34,7 @@ int main()
         // Input Titolo 
         printf("\nInserisci dati del libro %d\n", i + 1);
 
+        // Input Titolo
         printf("\nInserisci il titolo (max 99 caratteri): ");
         fgets(miolibro.titolo, sizeof(miolibro.titolo), stdin);
         miolibro.titolo[strcspn(miolibro.titolo, "\n")] = '\0';
