@@ -8,7 +8,7 @@ class Employee
 private:
     // Attributi privati
     int salary;
-    string name;
+    string nameVariable;
 
 public:
     // Setter
@@ -19,7 +19,7 @@ public:
 
     void setName(string myName)
     {
-        name = myName;
+        nameVariable = myName;
     }
 
     // Getter
@@ -30,23 +30,29 @@ public:
 
     string getName()
     {
-        return name;
+        return nameVariable;
     }
 };
 
 int main()
 {
+    string name;
+
     Employee myObj;
     myObj.setSalary(50000);
     cout << "Salary of myObj: " << myObj.getSalary() << endl;
 
     Employee maria;
-    maria.setName("Maria");
+    cout << "Inserisci il nome del primo dipendente: " << endl;
+    cin >> name;
+    maria.setName(name);
     maria.setSalary(75000);
     cout << maria.getName() << " earns " << maria.getSalary() << endl;
 
     Employee giuseppe;
-    giuseppe.setName("Giuseppe");
+    cout << "Inserisci il nome del secondo dipendente: " << endl;
+    cin >> name;
+    giuseppe.setName(name);
     giuseppe.setSalary(60000);
     cout << giuseppe.getName() << " earns " << giuseppe.getSalary() << endl;
 
