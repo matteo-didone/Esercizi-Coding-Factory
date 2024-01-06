@@ -36,7 +36,18 @@ int main()
 
         // Input Titolo
         printf("\nInserisci il titolo (max 99 caratteri): ");
+
+        // Non uso scanf perché voglio leggere oltre il whitespace (spazio, tab, newline, ecc.) e fgets è più adatto a questo scopo
+
+        // fgets legge una riga di testo da un file (o da stdin, nel caso dell'input utente) e la memorizza in una stringa.
+        // miolibro.titolo è il buffer di destinazione in cui verrà memorizzata la riga letta. È la stringa che conterrà il titolo del libro
+        // sizeof(miolibro.titolo) restituisce la dimensione del buffer di destinazione, in questo caso 100
+        // stdin specifica che l'input viene letto dalla console (standard input)
+
+        //  Variabile in cui andremo a salvare il valore di ritorno della funzione fgets, dimensione massima della stringa di input, e input da tastiera
         fgets(miolibro.titolo, sizeof(miolibro.titolo), stdin);
+
+        // strcspn restituisce la lunghezza della porzione iniziale di una stringa che non contiene alcuni caratteri specificati. In questo caso, cerca la posizione del primo carattere di nuova linea ('\n') nella stringa miolibro.titolo e restituisce la sua posizione. Questo valore viene poi usato per impostare il carattere di fine stringa ('\0') al posto del carattere di nuova linea.
         miolibro.titolo[strcspn(miolibro.titolo, "\n")] = '\0';
 
         // Input Autore
