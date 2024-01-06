@@ -106,6 +106,7 @@ public:
         }
         return volume;
     }
+
     int impostaCanale(int c)
     {
         canale = c % 100;
@@ -130,19 +131,23 @@ public:
 
 int main()
 {
+    // Istanziamo un oggetto Televisione e lo chiamiamo "t"
     Televisione t;
-    t.print();
+    // Accendiamo la televisione
     t.pulsanteRosso();
-    t.print();
-    t.canaleSuccessivo();
-    t.print();
-    t.canalePrecedente();
-    t.canalePrecedente();
-    t.canalePrecedente();
-    t.print();
+    // Andiamo ad impostare il volume della televisione, impostandolo a 6
     t.aumentaVolume();
+    // Controllo che il volume sia stato impostato a 6
     t.print();
-    t.pulsanteRosso();
+
+    // Andiamo ad impostare il canale della televisione a 42
+    for (int i = 1; i < 42; i++)
+    {
+        t.canaleSuccessivo();
+    }
+
+    // Controllo che il canale sia stato impostato a 42
     t.print();
+
     return 0;
 }
