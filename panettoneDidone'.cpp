@@ -7,6 +7,8 @@ Crea la classe panettone e modifica la sua rappresentazione UML in base alle tue
 
 // Including io stream library
 #include <iostream>
+#include <string>
+
 // Adding "using namespace std;" prevents me from having to write "std::" in front of every cin/cout statement
 // Instead of writing: std::cout << "Hello, World!" << std::endl;
 // I can just write: cout << "Hello, World!" << endl;
@@ -105,9 +107,10 @@ public:
     }
 
     // Metodo che ottiene la data di scadenza del panettone
-    void getExpirationDate()
+    // Metodo che restituisce la data di scadenza del panettone come stringa
+    string getExpirationDate()
     {
-        cout << "Data di scadenza: " << expiration_day << "/" << expiration_month << "/" << expiration_year << endl;
+        return to_string(expiration_day) + "/" + to_string(expiration_month) + "/" + to_string(expiration_year);
     }
 
     // Metodo che stampa tutte le informazioni relative ad un panettone
@@ -119,37 +122,58 @@ public:
         cout << "Calorie: " << calories << endl;
         cout << "Data di scadenza: " << expiration_day << "/" << expiration_month << "/" << expiration_year << endl;
     }
+
+    // Metodo per impostare tutti i parametri del panettone dall'utente
+    void setParametersFromUserInput()
+    {
+        cout << "Inserisci il peso del panettone: ";
+        cin >> weight;
+
+        cout << "Inserisci la marca del panettone: ";
+        cin.ignore(); // Ignora eventuali caratteri rimanenti nel buffer
+        getline(cin, brand);
+
+        cout << "Il panettone è adatto ai celiaci? (1 per Sì, 0 per No): ";
+        cin >> for_celiac;
+
+        cout << "Inserisci le calorie del panettone: ";
+        cin >> calories;
+
+        cout << "Inserisci l'anno di scadenza del panettone: ";
+        cin >> expiration_year;
+
+        cout << "Inserisci il mese di scadenza del panettone: ";
+        cin >> expiration_month;
+
+        cout << "Inserisci il giorno di scadenza del panettone: ";
+        cin >> expiration_day;
+    }
 };
 
 int main()
 {
-    // Creo una serie di panettoni
-    Panettone p1(1000, "Motta", false, 3000, 2021, 12, 31);
-    Panettone p2(500, "Bauli", true, 2000, 2021, 12, 31);
-    Panettone p3(750, "Pandoro", false, 2500, 2021, 12, 31);
+    // Creo una serie di panettoni e chiedo in input all'utente di impostare i relativi parametri
+    Panettone p1;
 
-    // Modifico le informazioni dei panettoni
-    p1.setWeight(1500);
-    p1.setBrand("Pandoro");
-    p1.setCeliac(true);
-    p1.setCalories(2500);
-    p1.setExpirationDate(2022, 12, 31);
+    // Imposto i parametri del primo panettone chiedendoli all'utente
+    p1.setParametersFromUserInput();
 
-    p2.setWeight(1000);
-    p2.setBrand("Motta");
-    p2.setCeliac(false);
-    p2.setCalories(3000);
-    p2.setExpirationDate(2022, 12, 31);
+    // Imposto i parametri del secondo panettone chiedendoli all'utente
+    Panettone p2;
+    p2.setParametersFromUserInput();
 
-    p3.setWeight(500);
-    p3.setBrand("Bauli");
-    p3.setCeliac(true);
-    p3.setCalories(2000);
-    p3.setExpirationDate(2022, 12, 31);
+    // Imposto i parametri del terzo panettone chiedendoli all'utente
+    Panettone p3;
+    p3.setParametersFromUserInput();
 
-    // Stampo le informazioni dei panettoni
+    // Infine, vado a stampare tutti e tre i panettoni e le relative informazioni fornite in input dall'utente 
+    cout << "\nInformazioni del primo panettone:\n";
     p1.printInfo();
+
+    cout << "\nInformazioni del secondo panettone:\n";
     p2.printInfo();
+
+    cout << "\nInformazioni del terzo panettone:\n";
     p3.printInfo();
 
     return 0;
