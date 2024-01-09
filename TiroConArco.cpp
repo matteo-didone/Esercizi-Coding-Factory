@@ -41,7 +41,7 @@ public:
 		int guadagno; // Punti ottenuti nel tiro. 
 		int x; // Rappresenta le coordinate orizzontali (asse delle x) del punto in cui la freccia colpisce il bersaglio
 		int y; // Rappresenta le coordinate verticali (asse delle y) del punto in cui la freccia colpisce il bersaglio
-		float dove;
+		float dove; // In C# uso una variabile di tipo double
 
 		// Andiamo a generare le coordinate x ed y in maniera casuale all'interno di un intervallo specifico
 		x = -40 + rand() % 81; // Restituisce un numero casuale tra 0 e RAND_MAX. Con % 81, il risultato viene limitato tra 0 e 80. L'intervallo finale sarà quindi da -40 a +40. 
@@ -100,7 +100,7 @@ int main()
 		cout << "Se vuoi ripetere premi s o S + invio:";
 		
 		cin >> risp; // Prendo in input la risposta che dà l'utente
-		risp = toupper(risp); // Converto la risposta dell'utente in una stringa maiuscola
+		risp = toupper(risp); // Converto la risposta dell'utente in un carattere maiuscolo
 		
 	} while (risp == 'S'); // Se la risposta dell'utente è "S" allora torna ad eseguire il ciclo
 	return 0;
