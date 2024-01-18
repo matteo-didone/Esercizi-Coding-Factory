@@ -42,38 +42,38 @@ public:
     }
 
     // Getters
-    string getTitle() 
+    string getTitle()
     {
-        return title;
+        return this->title;
     }
 
-    string getAuthor() 
+    string getAuthor()
     {
-        return author;
+        return this->author;
     }
 
-    int getNumberOfSongs() 
+    int getNumberOfSongs()
     {
-        return numberOfSongs;
+        return this->numberOfSongs;
     }
 
-    int getTotalTime() 
+    int getTotalTime()
     {
-        return totalTime;
+        return this->totalTime;
     }
 
     // Setters
-    void setTitle(string title) 
+    void setTitle(string title)
     {
         this->title = title;
     }
 
-    void setAuthor(string author) 
+    void setAuthor(string author)
     {
         this->author = author;
     }
 
-    void setNumberOfSongs(int numberOfSongs) 
+    void setNumberOfSongs(int numberOfSongs)
     {
         this->numberOfSongs = numberOfSongs;
     }
@@ -86,20 +86,19 @@ public:
     // Metodo che restituisce una stringa con tutti i dati dell’oggetto su cui è invocata
     void printInfo()
     {
-        cout << "Il CD di " << author << " chiamato " << title << ", della durata di " << totalTime << "al suo interno contiene " << getNumberOfSongs << " canzoni" << endl;
+        cout << "Il CD di " << author << " chiamato " << title << ", della durata di " << totalTime << " secondi, al suo interno contiene " << numberOfSongs << " canzoni" << endl;
     }
-
 };
 
 int main()
 {
     // Istanziamo un oggetto cd e lo chiamiamo "pinkFloydMasterpiece"
     Cd pinkFloydMasterpiece("The Dark Side of the Moon", "Pink Floyd", 10, 43 * 60);
-
+    
     // Istanziamo un secondo oggetto cd e lo chiamiamo "anotherCd"
     Cd anotherCd("The Wall", "Pink Floyd", 10, 43 * 60);
 
-    // Visualizzo le caratteristiche del primo cd 
+    // Visualizzo le caratteristiche del primo cd
     pinkFloydMasterpiece.printInfo();
 
     // Visualizzo le caratteristiche del second cd
