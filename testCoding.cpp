@@ -32,6 +32,15 @@ class Cd
     int totalTime; // in seconds
 
 public:
+    // Constructor without parameters
+    Cd()
+    {
+        this->title = "Unknown";
+        this->author = "Unknown";
+        this->numberOfSongs = 0;
+        this->totalTime = 0;
+    }
+
     // Constructor with parameters
     Cd(string title, string author, int numberOfSongs, int totalTime)
     {
@@ -88,13 +97,31 @@ public:
     {
         cout << "Il CD di " << author << " chiamato " << title << ", della durata di " << totalTime << " secondi, al suo interno contiene " << numberOfSongs << " canzoni" << endl;
     }
+
+    // Metodo per lasciar inserire tutti i parametri del CD dall'utente
+    void setAllParameters()
+    {
+        cout << "Inserisci il titolo del CD: ";
+        cin.ignore(); // Pulisce il buffer prima di leggere una stringa
+        getline(cin, title);
+
+        cout << "Inserisci l'autore del CD: ";
+        getline(cin, author);
+
+        cout << "Inserisci il numero di canzoni del CD: ";
+        cin >> numberOfSongs;
+
+        cout << "Inserisci la durata totale del CD in secondi: ";
+        cin >> totalTime;
+        cin.ignore(); // Pulisce il buffer dopo l'input di interi
+    }
 };
 
 int main()
 {
     // Istanziamo un oggetto cd e lo chiamiamo "pinkFloydMasterpiece"
     Cd pinkFloydMasterpiece("The Dark Side of the Moon", "Pink Floyd", 10, 43 * 60);
-    
+
     // Istanziamo un secondo oggetto cd e lo chiamiamo "anotherCd"
     Cd anotherCd("The Wall", "Pink Floyd", 10, 43 * 60);
 
@@ -120,6 +147,11 @@ int main()
     {
         cout << "I CD hanno la stessa durata" << endl;
     }
+
+    Cd mycd;
+    mycd.setAllParameters();
+
+    mycd.printInfo();
 
     return 0;
 }
