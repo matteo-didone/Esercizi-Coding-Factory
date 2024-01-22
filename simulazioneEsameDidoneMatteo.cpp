@@ -179,6 +179,7 @@ int main()
         {
             cin.clear();                                         // Pulisce il flag di errore
             cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignora il resto dell'input
+                                                                 // numeric_limits<streamsize>::max(): Restituisce il massimo valore possibile rappresentabile da un tipo streamsize. streamsize è un tipo di dato intero utilizzato per rappresentare dimensioni o indici di stream in C++. In pratica, numeric_limits<streamsize>::max() restituisce il massimo numero rappresentabile con il tipo streamsize \\ '\n' : Specifica il delimitatore('\n' rappresenta un carattere di nuova riga) fino al quale cin deve ignorare l'input.
             cout << "Input non valido. Per favore, inserisci un anno valido." << endl;
         }
         else
