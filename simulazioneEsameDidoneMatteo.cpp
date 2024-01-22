@@ -167,8 +167,26 @@ int main()
 
     // Visualizzo i codici di tutti i computer acquistati nell'anno n (inserito da tastiera con controllo)
     int yearFromInput;
-    cout << "Inserisci l'anno di acquisto dei computer che vuoi visualizzare: ";
-    cin >> yearFromInput;
+
+    // Controllo input inserito dall'utente
+    do
+    {
+        cout << "Inserisci l'anno di acquisto dei computer che vuoi visualizzare: ";
+        cin >> yearFromInput;
+
+        // Verifica se l'input è un numero valido
+        if (cin.fail())
+        {
+            cin.clear();                                         // Pulisce il flag di errore
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignora il resto dell'input
+            cout << "Input non valido. Per favore, inserisci un anno valido." << endl;
+        }
+        else
+        {
+            break; // Esci dal ciclo se l'input è valido
+        }
+
+    } while (true);
 
     if (computer1.getYearOfPurchase() == yearFromInput)
     {
@@ -178,7 +196,7 @@ int main()
     {
         cout << "Codice del computer 2: " << computer2.getCode() << endl;
     }
-    else 
+    else
     {
         cout << "Non ci sono computer acquistati nell'anno " << yearFromInput << endl;
     }
